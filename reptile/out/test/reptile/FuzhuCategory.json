@@ -1,0 +1,202 @@
+{
+  "RETCODE": 200,
+  "MSG": "SUCCESS",
+  "USERINFO": {},
+  "DATA": {
+    "DEFAULTPREFER": 50,
+    "SORTLIST_50": [
+      {
+        "BTID": 24,
+        "BTNAME": "幻想耽美",
+        "BOOKNUM": 12495,
+        "BTCOVER": [
+          {
+            "BOOKID": "537451"
+          },
+          {
+            "BOOKID": "616699"
+          },
+          {
+            "BOOKID": "580205"
+          }
+        ]
+      },
+      {
+        "BTID": 25,
+        "BTNAME": "现代耽美",
+        "BOOKNUM": 8737,
+        "BTCOVER": [
+          {
+            "BOOKID": "253378"
+          },
+          {
+            "BOOKID": "255454"
+          },
+          {
+            "BOOKID": "255167"
+          }
+        ]
+      },
+      {
+        "BTID": 26,
+        "BTNAME": "古风耽美",
+        "BOOKNUM": 4943,
+        "BTCOVER": [
+          {
+            "BOOKID": "592752"
+          },
+          {
+            "BOOKID": "552028"
+          },
+          {
+            "BOOKID": "248491"
+          }
+        ]
+      },
+      {
+        "BTID": 4,
+        "BTNAME": "青春校园",
+        "BOOKNUM": 2869,
+        "BTCOVER": [
+          {
+            "BOOKID": "519623"
+          },
+          {
+            "BOOKID": "640865"
+          },
+          {
+            "BOOKID": "83446"
+          }
+        ]
+      },
+      {
+        "BTID": 17,
+        "BTNAME": "玄幻",
+        "BOOKNUM": 2659,
+        "BTCOVER": [
+          {
+            "BOOKID": "615127"
+          },
+          {
+            "BOOKID": "570238"
+          },
+          {
+            "BOOKID": "617310"
+          }
+        ]
+      },
+      {
+        "BTID": 15,
+        "BTNAME": "同人",
+        "BOOKNUM": 2635,
+        "BTCOVER": [
+          {
+            "BOOKID": "311614"
+          },
+          {
+            "BOOKID": "313174"
+          },
+          {
+            "BOOKID": "301327"
+          }
+        ]
+      },
+      {
+        "BTID": 22,
+        "BTNAME": "短篇",
+        "BOOKNUM": 1777,
+        "BTCOVER": [
+          {
+            "BOOKID": "167130"
+          },
+          {
+            "BOOKID": "168690"
+          },
+          {
+            "BOOKID": "280194"
+          }
+        ]
+      },
+      {
+        "BTID": 18,
+        "BTNAME": "奇幻",
+        "BOOKNUM": 1643,
+        "BTCOVER": [
+          {
+            "BOOKID": "257723"
+          },
+          {
+            "BOOKID": "292931"
+          },
+          {
+            "BOOKID": "317827"
+          }
+        ]
+      },
+      {
+        "BTID": 6,
+        "BTNAME": "仙侠",
+        "BOOKNUM": 852,
+        "BTCOVER": [
+          {
+            "BOOKID": "546646"
+          },
+          {
+            "BOOKID": "559707"
+          },
+          {
+            "BOOKID": "313002"
+          }
+        ]
+      },
+      {
+        "BTID": 9,
+        "BTNAME": "灵异",
+        "BOOKNUM": 696,
+        "BTCOVER": [
+          {
+            "BOOKID": "314862"
+          },
+          {
+            "BOOKID": "317832"
+          },
+          {
+            "BOOKID": "298172"
+          }
+        ]
+      },
+      {
+        "BTID": 20,
+        "BTNAME": "百合",
+        "BOOKNUM": 448,
+        "BTCOVER": [
+          {
+            "BOOKID": "248165"
+          },
+          {
+            "BOOKID": "82253"
+          },
+          {
+            "BOOKID": "242879"
+          }
+        ]
+      },
+      {
+        "BTID": 14,
+        "BTNAME": "游戏",
+        "BOOKNUM": 343,
+        "BTCOVER": [
+          {
+            "BOOKID": "313380"
+          },
+          {
+            "BOOKID": "318718"
+          },
+          {
+            "BOOKID": "265303"
+          }
+        ]
+      }
+    ]
+  }
+}

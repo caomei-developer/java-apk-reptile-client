@@ -1,0 +1,45 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-all/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-aop/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-aop/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-bloomFilter/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-bloomFilter/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-cache/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-cache/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-captcha/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-captcha/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-core/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-cron/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-cron/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-crypto/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-crypto/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-db/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-db/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-dfa/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-dfa/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-extra/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-extra/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-http/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-http/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-json/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-json/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-log/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-log/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-poi/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-poi/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-script/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-script/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-setting/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-setting/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-socket/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-socket/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-system/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../Downloads/hutoolgjb_jb51/hutool/hutool-system/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
