@@ -11,10 +11,18 @@ public class DBUtil {
 
     public static String getBookNameAndBookAuthorName="select book_name ,author_name from book_ids";
 
+    public static String addRecommend = "insert into novel_recommend (novelId,novelChapters,novelName,novelSrc,novelImageUrl,novelAuthor,novelTime,novelCategory) values(?,?,?,?,?,?,?,?)";
+
+    public static String copyright = "insert into legal_affairs (search_key,search_name,path,nature,company,time,ip,registrant,record_number,record_number_path,corporate_representative) values(?,?,?,?,?,?,?,?,?,?,?)";
+
+
     //获取文件xlsx
     public static String searchXlsxPath = "/Users/zw/Downloads/test_novel.xlsx";
+    public static String searchBaiduXlsxPath = "/Users/zw/Downloads/shudan.xlsx";
 
     //词典数据包地址
     public static String dictionaryAddress = "/Users/zw/Downloads/data-for-1.7.5";
+
+
 
 }

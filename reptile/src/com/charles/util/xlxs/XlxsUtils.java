@@ -172,7 +172,7 @@ public class XlxsUtils {
         Sheet sheet = workbook.getSheetAt(0);// 读取第一个 sheet
         List<String> personPhone = new ArrayList<>();
         Row row = null;//存储行数据对象
-        int rowCount = sheet.getPhysicalNumberOfRows();// 获得行总数
+        int rowCount = sheet.getPhysicalNumberOfRows();// 获总数
         // 逐行处理 excel 数据
         for (int i = 1; i < rowCount; i++) {
             row = sheet.getRow(i);//获得每一行的数据
@@ -180,7 +180,7 @@ public class XlxsUtils {
                 int coloumNum = sheet.getRow(0).getPhysicalNumberOfCells();// 获得咧总数
                 String phone;
                 for (int j = 0; j < coloumNum; j++) {
-                    Cell cell = row.getCell(j);//获得一个单元格
+                    Cell cell = row.getCell(1);//获得一个单元格
                     if (cell != null) {
                         personPhone.add(cell.toString());
                     }

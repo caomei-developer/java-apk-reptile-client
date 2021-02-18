@@ -3,8 +3,6 @@ package com.charles.http;
 import com.charles.util.JSONUtil;
 import okhttp3.*;
 
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -15,7 +13,7 @@ public class HttpUtil {
         Response response = okHttpClient.newCall(request(url)).execute();
         if (response.isSuccessful()) {
             String txt = response.body().string();
-            httpCallback.OnSuccess(txt);
+            httpCallback.onSuccess(txt);
         } else {
             httpCallback.onFail(response.message());
         }
@@ -25,7 +23,7 @@ public class HttpUtil {
         Response response = okHttpClient.newCall(request(url, keyword, page)).execute();
         if (response.isSuccessful()) {
             String txt = response.body().string();
-            httpCallback.OnSuccess(txt);
+            httpCallback.onSuccess(txt);
         } else {
             httpCallback.onFail(response.message());
         }
@@ -47,7 +45,7 @@ public class HttpUtil {
         Response response = okHttpClient.newCall(request).execute();
         if (response.isSuccessful()) {
             String txt = response.body().string();
-            httpCallback.OnSuccess(txt);
+            httpCallback.onSuccess(txt);
         } else {
             httpCallback.onFail(response.message());
         }
@@ -57,7 +55,7 @@ public class HttpUtil {
         Response response = okHttpClient.newCall(stringRequest(url, map)).execute();
         if (response.isSuccessful()) {
             String txt = response.body().string();
-            httpCallback.OnSuccess(txt);
+            httpCallback.onSuccess(txt);
         } else {
             httpCallback.onFail(response.message());
         }
@@ -67,7 +65,7 @@ public class HttpUtil {
         Response response = okHttpClient.newCall(request(url, map)).execute();
         if (response.isSuccessful()) {
             String txt = response.body().string();
-            httpCallback.OnSuccess(txt);
+            httpCallback.onSuccess(txt);
         } else {
             httpCallback.onFail(response.message());
         }
@@ -134,7 +132,7 @@ public class HttpUtil {
     }
 
     public interface HttpCallback {
-        void OnSuccess(String body) throws Exception;
+        void onSuccess(String body) throws Exception;
 
         void onFail(String msg);
     }

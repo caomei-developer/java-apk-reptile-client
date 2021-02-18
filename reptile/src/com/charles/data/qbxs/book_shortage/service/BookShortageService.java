@@ -29,7 +29,7 @@ public class BookShortageService {
         preparedStatement = connection.prepareStatement(sql);
         HttpUtil.http(url, new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) throws Exception {
+            public void onSuccess(String body) throws Exception {
                 JSon jSon = JSONUtil.parseObject(body, JSon.class);
                 Chapter dataJson = JSONUtil.parseObject(DesUtil.decode(jSon.getData(), DesUtil.getAppKey), Chapter.class);
                 System.out.print(JSONUtil.toJSONString(dataJson) + "\n");

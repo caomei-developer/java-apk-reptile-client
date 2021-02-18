@@ -9,6 +9,7 @@ public class FuzhuApi {
     public static String APP_URL_POST_HTTP_MODE = "POST";
 
     public static String UID = "0";
+
     public static String VIP = "0";
 
     public static String APP_URL_GET_HTTP_MODE = "GET";
@@ -20,6 +21,11 @@ public class FuzhuApi {
     public static String FZ_CATEGORY_BOOK_LIST = "app/list/commbooks";
 
     public static String FZ_SEARCH_URL = "app/query/keybooks";
+
+    public static String FZ_HOME_URL = "app/home/elitebook";
+
+    public static String FU_JING_XUAN = "jingxuan";
+
 
 
 }

@@ -1,16 +1,15 @@
 package com.charles.data.fuzhu.fu_category;
 
 import com.charles.api.FuzhuApi;
+import com.charles.data.fuzhu.fu_category.bean.Recommend;
+import com.charles.data.fuzhu.fu_category.bean.RecommendList;
 import com.charles.data.fuzhu.fu_category.bean.Search;
-import com.charles.data.qbxs.JSon;
 import com.charles.http.HttpUtil;
 import com.charles.util.*;
 import com.charles.util.string.CosineSimilarity;
-import com.charles.util.xlxs.XlxsUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.List;
 
 
 public class FuCategoryService {
@@ -18,19 +17,20 @@ public class FuCategoryService {
     public static Connection connection;
 
     public static void main(String[] args) throws Exception {
-        String sql = DBUtil .addSearchBook;
+        String sql = DBUtil.addRecommend;
 
-        if (connection != null) {
-            preparedStatement.close();
-            connection.close();
-        }
-        connection = SQLDBUtil.getConnection();
-        preparedStatement = connection.prepareStatement(sql);
-        List<String> keyword = XlxsUtils.read(DBUtil.searchXlsxPath);
-        System.out.println(keyword.size());
-        for (String string : keyword) {
-            getSearch(string);
-        }
+//        if (connection != null) {
+//            preparedStatement.close();
+//            connection.close();
+//        }
+//        connection = SQLDBUtil.getConnection();
+//        preparedStatement = connection.prepareStatement(sql);
+//        List<String> keyword = XlxsUtils.read(DBUtil.searchXlsxPath);
+//        System.out.println(keyword.size());
+//        for (String string : keyword) {
+//            getSearch(string);
+//        }
+        getRecommend();
 
     }
 
@@ -64,11 +64,18 @@ public class FuCategoryService {
         getSearchList(timestamp, param, keyword, point);
     }
 
+    public static void getRecommend() throws Exception {
+        long timestamp = Long.valueOf(System.currentTimeMillis());
+        String param = checkSign(HTTP_SIGN.JING_XUAN, timestamp, 0, point, 0, 0);
+        recommend(timestamp, param, FuzhuApi.FU_JING_XUAN, FuzhuApi.UID, "0", "", "", "", "0");
+    }
+
+
     public static void getCategory(long l, String param, String prefer, String uID) throws Exception {
         HttpUtil.getHttp(FuzhuApi.FZ_BASE_URL + FuzhuApi.FZ_CATEGORY_URL, RequestUtil.buildMap("timestamp", String.valueOf(l)
                 , "sign", param, "prefer", prefer, "uID", uID), new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) throws Exception {
+            public void onSuccess(String body) throws Exception {
                 System.out.println(body);
             }
 
@@ -83,7 +90,7 @@ public class FuCategoryService {
         HttpUtil.getHttp(FuzhuApi.FZ_BASE_URL + FuzhuApi.FZ_CATEGORY_BOOK_LIST, RequestUtil.buildMap("timestamp", String.valueOf(l)
                 , "sign", param, "prefer", prefer, "uID", uID, "vip", "0", "state", String.valueOf(state), "rank", String.valueOf(rank), "pn", String.valueOf(pn), "bt", String.valueOf(bt)), new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) throws Exception {
+            public void onSuccess(String body) throws Exception {
                 System.out.println(body);
             }
 
@@ -102,7 +109,7 @@ public class FuCategoryService {
                 "kw", keyword,
                 "pn", String.valueOf(point)), new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) {
+            public void onSuccess(String body) {
                 Search search = JSONUtil.parseObject(body, Search.class);
                 if (search.getDATA().KEYLIST != null) {
                     System.out.println(search.getDATA().KEYLIST.size());
@@ -121,6 +128,49 @@ public class FuCategoryService {
                 System.out.println(msg);
             }
         });
+    }
+
+
+    public static void recommend(long timestamp, String param, String fuJingXuan, String UID, String s, String s1, String s2, String s3, String s4) throws Exception {
+        RequestUtil.buildMap("timestamp", timestamp, "sign", param, "page", fuJingXuan, "uID", UID, "token", s, "country", s1, "province", s2, "city", s3, "isWifi", s4);
+
+        HttpUtil.getHttp(FuzhuApi.FZ_BASE_URL + FuzhuApi.FZ_HOME_URL, RequestUtil.buildMap("timestamp", "" + timestamp,
+                "sign", param,
+                "page", fuJingXuan,
+                "uID", UID,
+                "token", s,
+                "country", s1,
+                "province", s2,
+                "city", s3,
+                "isWifi", s4),
+                new HttpUtil.HttpCallback() {
+                    @Override
+                    public void onSuccess(String body) throws Exception {
+                        System.out.println(body);
+                        RecommendList recommendList = JSONUtil.parseObject(body, RecommendList.class);
+                        for (RecommendList.DataBean.LmlistBean lmlistBean : recommendList.DATA.LMLIST) {
+                            for (RecommendList.DataBean.LmlistBean.BooksBean booksBean : lmlistBean.BOOKS) {
+                                Recommend recommend = new Recommend();
+                                recommend.setNovelId(booksBean.getKEYID());
+                                recommend.setNovelName(booksBean.getKEYNAME());
+                                recommend.setNovelImageUrl(booksBean.getCOVERURL());
+                                recommend.setNovelAuthor(booksBean.getAUTHORNAME());
+                                recommend.setNovelCategory(booksBean.getKEYTYPE());
+                                recommend.setNovelSrc(booksBean.getCONTENT());
+                                recommend.setNovelTime(System.currentTimeMillis());
+//                                addData(recommend);
+//                            System.out.println(JSONUtil.toJSONString(recommend));
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFail(String msg) {
+
+                    }
+                });
+
     }
 
     public static String checkSign(HTTP_SIGN http_sign, long timestamp, int bt, int pn, int state, int rank) {
@@ -155,13 +205,22 @@ public class FuCategoryService {
                         FuzhuApi.APP_URL_POST_HTTP_MODE,
                         FuzhuApi.FZ_BASE_URL + FuzhuApi.FZ_SEARCH_URL);
 
+            case JING_XUAN:
+                return SignatureUtil.elitebook(
+                        FuzhuApi.APP_ANDROID,
+                        timestamp,
+                        FuzhuApi.FU_JING_XUAN,
+                        FuzhuApi.UID,
+                        FuzhuApi.APP_URL_GET_HTTP_MODE,
+                        FuzhuApi.FZ_BASE_URL + FuzhuApi.FZ_HOME_URL);
+
         }
 
         return null;
     }
 
     public enum HTTP_SIGN {
-        BOOK_SORTS, CATEGORY_BOOK_LIST, SEARCH
+        BOOK_SORTS, CATEGORY_BOOK_LIST, SEARCH, JING_XUAN
     }
 
     //1001搜索
@@ -187,13 +246,30 @@ public class FuCategoryService {
     }
 
 
+    private static void addData(Recommend recommend) {
+        try {
+            preparedStatement.setInt(1, recommend.getNovelId());
+            preparedStatement.setInt(2, recommend.getNovelChapters());
+            preparedStatement.setString(3, recommend.getNovelName());
+            preparedStatement.setString(4, recommend.getNovelSrc());
+            preparedStatement.setString(5, recommend.getNovelImageUrl());
+            preparedStatement.setString(6, recommend.getNovelAuthor() == null ? "" : recommend.getNovelAuthor());
+            preparedStatement.setLong(7, recommend.getNovelTime());
+            preparedStatement.setString(8, recommend.getNovelCategory() == null ? "" : recommend.getNovelAuthor());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private static int state = 0; //此参数 10 连载 20 完结 0 所有
 
     private static int rank = 0; //次参数 10 星级 20 最新 30 数字  0 人气
 
     private static int bt = 0; // 24=幻想耽美 25=现代耽美 26=古风耽美 4=青春校园 17=玄幻 15=同人 22=短片 18=奇幻 6=仙侠 9=灵异 20= 百合 14=游戏
 
-    private static int point = 20; // point 就是 pn  每夜多少条数据
+    private static int point = 20; // point 就是 pn  每页多少条数据
 
 
 }

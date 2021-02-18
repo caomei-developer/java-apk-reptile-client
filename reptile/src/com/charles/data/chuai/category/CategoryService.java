@@ -54,7 +54,7 @@ public class CategoryService {
     private static void getCategory() throws Exception {
         HttpUtil.http(ChunaiApi.CI_BASE_URL + ChunaiApi.APP_CATEGORY, new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) {
+            public void onSuccess(String body) {
                 CategoryBean categoryBean = JSONUtil.parseObject(body, CategoryBean.class);
                 System.out.println(JSONUtil.toJSONString(categoryBean));
             }
@@ -80,7 +80,7 @@ public class CategoryService {
 
         HttpUtil.postHttp(ChunaiApi.CI_BASE_URL + ChunaiApi.APP_CATEGORY_LIST, RequestUtil.buildMap("tstype", tstype, "ismanhua", ismanhua, "xstype", xstype, "offset", offset, "isfree", isfree, "limit", limit, "order", order), new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) {
+            public void onSuccess(String body) {
                 BookCategoryListBean bookCategoryListBean = JSONUtil.parseObject(body, BookCategoryListBean.class);
                 for (BookCategoryListBean.DataBean dataBean : bookCategoryListBean.getData()) {
                     System.out.println(dataBean.getBookName());
@@ -99,7 +99,7 @@ public class CategoryService {
     public static void getSearch(String keyword, Integer pn) throws Exception {
         HttpUtil.postHttp(ChunaiApi.CI_BASE_URL + ChunaiApi.APP_SEARCH, RequestUtil.buildMap("search", keyword, "offset", pn.intValue(),"limit", 20), new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) {
+            public void onSuccess(String body) {
                 Search search = JSONUtil.parseObject(body,Search.class);
                 for (Search.DataBean resultBean : search.getData()) {
                     double strSimilarity = CosineSimilarity.getSimilarity(keyword, resultBean.getArticlename());

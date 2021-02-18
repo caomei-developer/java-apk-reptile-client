@@ -35,7 +35,7 @@ public class JsoupHtmlService {
 
         JsoupUtil.getJsoup(dj_url + k, new JsoupUtil.HttpCallback() {
             @Override
-            public void OnSuccess(Document body) throws Exception {
+            public void onSuccess(Document body) throws Exception {
                 html(body, k);
             }
 

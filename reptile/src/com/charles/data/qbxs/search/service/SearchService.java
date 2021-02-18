@@ -39,7 +39,7 @@ public class SearchService {
         for (String key : keyword) {
             HttpUtil.postHttp(QbxsApi.SEARCH_URL, key, 1, new HttpUtil.HttpCallback() {
                 @Override
-                public void OnSuccess(String body) throws Exception {
+                public void onSuccess(String body) throws Exception {
                     JSon jSon = JSONUtil.parseObject(body, JSon.class);
                     Search dataJson = JSONUtil.parseObject(DesUtil.decode(jSon.getData(), DesUtil.getAppKey), Search.class);
                     for (Search.ResultBean resultBean : dataJson.getResult()) {

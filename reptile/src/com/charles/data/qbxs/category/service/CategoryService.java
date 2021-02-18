@@ -31,7 +31,7 @@ public class CategoryService {
     private static void addCategoryBook() throws Exception {
         HttpUtil.http(QbxsApi.CATEGORY_URL, new HttpUtil.HttpCallback() {
             @Override
-            public void OnSuccess(String body) throws Exception {
+            public void onSuccess(String body) throws Exception {
                 JSon jSon = JSONUtil.parseObject(body, JSon.class);
                 DataJson dataJson = JSONUtil.parseObject(DesUtil.decode(jSon.getData(), DesUtil.getAppKey), DataJson.class);
 
