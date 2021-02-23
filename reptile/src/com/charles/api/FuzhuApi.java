@@ -24,8 +24,13 @@ public class FuzhuApi {
 
     public static String FZ_HOME_URL = "app/home/elitebook";
 
-    public static String FU_JING_XUAN = "jingxuan";
+    public static String FZ_BOOK_INDEX = "app/info/bookindex"; // 详情
 
+    public static String FZ_BOOK_CATA = "app/info/bookcata";//章节
+
+    public static String FZ_BOOK_FREECHAPTER = "app/book/freechapter";//内容
+
+    public static String FU_JING_XUAN = "jingxuan";
 
 
 }
